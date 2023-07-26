@@ -1,4 +1,4 @@
-local utils = require "astrocore"
+local utils = require "astrocore.utils"
 return {
   "nvim-treesitter/nvim-treesitter",
   dependencies = {

@@ -1,4 +1,4 @@
-local utils = require "astrocore"
+local utils = require "astrocore.utils"
 return {
   {
     "AstroNvim/astrolsp",
@@ -25,7 +25,8 @@ return {
   {
     "p00f/clangd_extensions.nvim",
     ft = { "c", "cpp", "objc", "objcpp", "cuda", "proto" },
-    opts = function() return { server = require("astrolsp").lsp_opts "clangd" } end,
+    init = function() utils.list_insert_unique(astrocore.lsp.skip_setup, "clangd") end,
+    opts = function() return { server = require("astrocore.utils.lsp").config "clangd" } end,
   },
   {
     "Civitasv/cmake-tools.nvim",

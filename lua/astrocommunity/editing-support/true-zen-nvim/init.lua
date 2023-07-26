@@ -1,5 +1,5 @@
 local prefix = "<leader>z"
-local utils = require "astrocore"
+local utils = require "astrocore.utils"
 return {
   {
     "AstroNvim/astrocore",

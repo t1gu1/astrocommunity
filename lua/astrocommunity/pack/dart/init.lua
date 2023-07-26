@@ -1,4 +1,4 @@
-local utils = require "astrocore"
+local utils = require "astrocore.utils"
 return {
   { import = "astrocommunity.pack.yaml" },
   {
@@ -21,7 +21,7 @@ return {
     init = function() astrocore.lsp.skip_setup = utils.list_insert_unique(astrocore.lsp.skip_setup, "dartls") end,
     opts = function()
       return {
-        lsp = require("astrolsp").lsp_opts "dartls",
+        lsp = require("astrocore.utils.lsp").config "dartls",
         debugger = { enabled = true },
       }
     end,
