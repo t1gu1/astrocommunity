@@ -26,7 +26,8 @@ return {
   },
   {
     "sigmasd/deno-nvim",
+    init = function() astrocore.lsp.skip_setup = utils.list_insert_unique(astrocore.lsp.skip_setup, "denols") end,
     ft = { "javascript", "typescript", "javascriptreact", "typescriptreact" },
-    opts = function() return { server = require("astrolsp").config "denols" } end,
+    opts = function() return { server = require("astrocore.utils.lsp").config "denols" } end,
   },
 }

@@ -18,9 +18,10 @@ return {
   {
     "akinsho/flutter-tools.nvim",
     ft = "dart",
+    init = function() astrocore.lsp.skip_setup = utils.list_insert_unique(astrocore.lsp.skip_setup, "dartls") end,
     opts = function()
       return {
-        lsp = require("astrolsp").config "dartls",
+        lsp = require("astrocore.utils.lsp").config "dartls",
         debugger = { enabled = true },
       }
     end,

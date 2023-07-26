@@ -20,9 +20,10 @@ return {
     "mrcjkb/haskell-tools.nvim",
     ft = { "haskell" },
     branch = "1.x.x", -- recommended by haskell-tools
+    init = function() astrocore.lsp.skip_setup = utils.list_insert_unique(astrocore.lsp.skip_setup, "hls") end,
     opts = {
       hls = {
-        on_attach = function(client, bufnr) require("astrolsp").on_attach(client, bufnr) end,
+        on_attach = function(client, bufnr) require("astrocore.utils.lsp").on_attach(client, bufnr) end,
       },
     },
     config = function(_, opts)
