@@ -118,7 +118,7 @@ return {
       "javascript",
       "javascriptreact",
     },
-    opts = function() return { server = require("astrocore.utils.lsp").config "tsserver" } end,
+    opts = function() return { server = require("astrolsp").lsp_opts "tsserver" } end,
   },
   {
     "jose-elias-alvarez/null-ls.nvim",

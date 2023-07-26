@@ -21,7 +21,7 @@ return {
     init = function() astrocore.lsp.skip_setup = utils.list_insert_unique(astrocore.lsp.skip_setup, "dartls") end,
     opts = function()
       return {
-        lsp = require("astrocore.utils.lsp").config "dartls",
+        lsp = require("astrolsp").lsp_opts "dartls",
         debugger = { enabled = true },
       }
     end,
