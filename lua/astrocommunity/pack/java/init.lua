@@ -104,8 +104,8 @@ return {
         },
         filetypes = { "java" },
         on_attach = function(client, bufnr)
-          require("jdtls").setup_dap()
-          require("astrocore.utils.lsp").on_attach(client, bufnr)
+          require("jdtls").setup_dap { hotcodereplace = "auto" }
+          require("astrolsp").on_attach(client, bufnr)
         end,
       }
 
