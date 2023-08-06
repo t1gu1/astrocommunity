@@ -1,4 +1,4 @@
-local utils = require "astrocore.utils"
+local utils = require "astrocore"
 
 return {
   {
@@ -38,7 +38,6 @@ return {
   {
     "mfussenegger/nvim-jdtls",
     ft = { "java" },
-    init = function() astrocore.lsp.skip_setup = utils.list_insert_unique(astrocore.lsp.skip_setup, "jdtls") end,
     dependencies = { "williamboman/mason-lspconfig.nvim" },
     opts = function(_, opts)
       -- use this function notation to build some variables
@@ -61,7 +60,7 @@ return {
 
       -- ensure that OS is valid
       if not os or os == "" then
-        require("astrocore.utils").notify("jdtls: Could not detect valid OS", vim.log.levels.ERROR)
+        require("astrocore").notify("jdtls: Could not detect valid OS", vim.log.levels.ERROR)
       end
 
       local defaults = {
@@ -105,7 +104,7 @@ return {
         filetypes = { "java" },
         on_attach = function(client, bufnr)
           require("jdtls").setup_dap()
-          require("astrocore.utils.lsp").on_attach(client, bufnr)
+          require("astrolsp").on_attach(client, bufnr)
         end,
       }
 
@@ -130,10 +129,7 @@ return {
             require("jdtls").start_or_attach(opts)
             -- require('jdtls.dap').setup_dap_main_class_configs()
           else
-            require("astrocore.utils").notify(
-              "jdtls: root_dir not found. Please specify a root marker",
-              vim.log.levels.ERROR
-            )
+            require("astrocore").notify("jdtls: root_dir not found. Please specify a root marker", vim.log.levels.ERROR)
           end
         end,
       })

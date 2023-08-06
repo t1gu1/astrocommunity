@@ -1,4 +1,4 @@
-local utils = require "astrocore.utils"
+local utils = require "astrocore"
 return {
   { import = "astrocommunity.pack.yaml" },
   {
@@ -18,10 +18,9 @@ return {
   {
     "akinsho/flutter-tools.nvim",
     ft = "dart",
-    init = function() astrocore.lsp.skip_setup = utils.list_insert_unique(astrocore.lsp.skip_setup, "dartls") end,
     opts = function()
       return {
-        lsp = require("astrocore.utils.lsp").config "dartls",
+        lsp = require("astrolsp").config "dartls",
         debugger = { enabled = true },
       }
     end,

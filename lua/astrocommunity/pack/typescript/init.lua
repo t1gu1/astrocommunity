@@ -1,4 +1,4 @@
-local utils = require "astrocore.utils"
+local utils = require "astrocore"
 
 local function on_file_remove(args)
   local ts_clients = vim.lsp.get_active_clients { name = "tsserver" }
@@ -111,14 +111,13 @@ return {
   },
   {
     "jose-elias-alvarez/typescript.nvim",
-    init = function() astrocore.lsp.skip_setup = utils.list_insert_unique(astrocore.lsp.skip_setup, "tsserver") end,
     ft = {
       "typescript",
       "typescriptreact",
       "javascript",
       "javascriptreact",
     },
-    opts = function() return { server = require("astrocore.utils.lsp").config "tsserver" } end,
+    opts = function() return { server = require("astrolsp").lsp_opts "tsserver" } end,
   },
   {
     "jose-elias-alvarez/null-ls.nvim",

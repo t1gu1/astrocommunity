@@ -1,7 +1,8 @@
-local utils = require "astrocore.utils"
+local utils = require "astrocore"
 local prefix = "<leader>g"
 local icon = vim.g.icons_enabled and "󰰔 " or ""
 -- utils.set_mappings { n = { [prefix] = { desc = icon .. "Neogit" } } }
+local ui_utils = require "astroui"
 
 local fold_signs = { ui_utils.get_icon "FoldClosed", ui_utils.get_icon "FoldOpened" }
 return {

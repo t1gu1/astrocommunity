@@ -2,6 +2,12 @@ local utils = require "astronvim.utils"
 
 return {
   {
+    "AstroNvim/astrolsp",
+    opts = {
+      handlers = { metals = false },
+    },
+  },
+  {
     "nvim-treesitter/nvim-treesitter",
     opts = function(_, opts)
       if opts.ensure_installed ~= "all" then
@@ -12,7 +18,6 @@ return {
   {
     "scalameta/nvim-metals",
     init = function()
-      astronvim.lsp.skip_setup = utils.list_insert_unique(astronvim.lsp.skip_setup, "metals")
       vim.api.nvim_create_autocmd("FileType", {
         pattern = { "scala", "sbt" },
         callback = function()
